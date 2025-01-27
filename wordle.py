@@ -5,6 +5,7 @@ import multiprocessing
 import os
 import pickle
 import hashlib
+from unidecode import unidecode
 
 ENTROPY_CACHE_FILE = "initial_entropy.pkl"
 WORDLIST_HASH_FILE = "wordlist_hash.txt"
@@ -21,7 +22,7 @@ def load_word_list(file_path):
     """
     try:
         with open(file_path, 'r') as file:
-            words = [line.strip().lower() for line in file if len(line.strip()) == 5]
+            words = [unidecode(line.strip().lower()) for line in file if len(line.strip()) == 5]
         if not words:
             print("The word list is empty. Please ensure 'wordlist.txt' contains valid 5-letter words.")
             sys.exit(1)
