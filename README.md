@@ -1,6 +1,6 @@
-# Wordle Solver AI Bot
+# Wordle Solver Bot
 
-An AI-powered Wordle solver that efficiently guesses the correct word using entropy-based calculations. Optimized for large word lists (80,000+ words) with caching for fast initial guesses.
+A Wordle solver that efficiently guesses the correct word using entropy-based calculations. Optimized for large word lists (80,000+ words) with caching for fast initial guesses.
 
 ## Features
 
