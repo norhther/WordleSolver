@@ -12,7 +12,7 @@ A Wordle solver that efficiently guesses the correct word using entropy-based ca
 ## Requirements
 
 - Python 3.7+
-- Multiprocessing and hashlib (default in Python)
+- Multiprocessing and hashlib (default in Python), and unidecode
 - A valid `wordlist.txt` file with 5-letter words (one per line). We provide a spanish one in this repository.
 
 ## Usage
