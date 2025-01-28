@@ -367,8 +367,7 @@ def wordle_bot():
                 print("Please enter feedback again.")
 
         # Check if the guess is correct (all green)
-        # All bits set to '10' for green: 2 << 8 | 2 << 6 | 2 << 4 | 2 << 2 | 2 = 2*256 + 2*64 + 2*16 + 2*4 + 2 = 512 + 128 + 32 + 8 + 2 = 682
-        if feedback == 682:
+        if feedback == 682:  # 682 corresponds to all greens
             print("🎉 Congratulations! Wordle solved!")
             return
 
@@ -376,7 +375,19 @@ def wordle_bot():
         possible_words = filter_possible_words(guess, feedback, possible_words)
         print(f"📉 Remaining possible words: {len(possible_words)}")
 
+        # Ask the user if they want to see remaining words
+        show_words = input("👀 Would you like to see the remaining words? (y/n): ").strip().lower()
+        if show_words == 'y':
+            print("📝 Remaining words:")
+            print(", ".join(possible_words))
+
     print("\n❌ Failed to solve Wordle within the allowed attempts.")
+
+
+if __name__ == "__main__":
+    if sys.platform.startswith('win'):
+        multiprocessing.freeze_support()
+    wordle_bot()
 
 
 if __name__ == "__main__":
